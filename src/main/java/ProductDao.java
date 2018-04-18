@@ -2,7 +2,12 @@ import java.sql.*;
 
 
 public  class ProductDao {
-    private final ConnectionMaker connectionMaker = new JejuConnectionMaker();
+    private final ConnectionMaker connectionMaker;
+
+    public ProductDao(ConnectionMaker connectionMaker) {
+        this.connectionMaker = connectionMaker;
+    }
+
     public Product get(Long id) throws ClassNotFoundException, SQLException {
         Connection connection = connectionMaker.getConnection();
 
